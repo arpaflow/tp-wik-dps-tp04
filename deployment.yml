@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-deployment
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: echo-deployment
+  template:
+    metadata:
+      labels:
+        app: echo-deployment
+    spec:
+      containers:
+      - name: echo
+        image: registry.cluster.wik.cloud/public/echo
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+  strategy:
+   type: RollingUpdate
+   rollingUpdate:
+     maxUnavailable: 50%
