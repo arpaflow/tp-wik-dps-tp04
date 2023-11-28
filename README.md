@@ -6,7 +6,7 @@ Kubernetes first steps
 ## Run
 ### Software needed
 ```
-minikub, kubectl, docker
+minikube, kubectl, docker
 ```
 1. Clone the repository
 ```
